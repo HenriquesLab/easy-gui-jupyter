@@ -15,14 +15,11 @@ ipyfilechooser = "^0.6.0"
 pre-commit = "^3.7.0"
 ipykernel = "^6.29.4"
 
-[tool.poetry.group.dev-extra.dependencies]
-gptrepo = "^1.0.3"
-
-
 [tool.poetry.group.test.dependencies]
 pytest = "^8.2.0"
 pytest-xdist = "^3.6.1"
 nbmake = "^1.5.3"
+gptrepo = "^1.0.3"
 
 
 [tool.pytest.ini_options]

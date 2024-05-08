@@ -112,6 +112,10 @@ class EasyGUI:
         :param tag: tag to identify the widget
         :param args: args for the widget
         :param kwargs: kwargs for the widget
+
+        Example:
+            >>> gui = EasyGUI()
+            >>> gui.add_text("text", value="Hello, world!")
         """
         self._widgets[tag] = widgets.Text(*args, **kwargs, layout=self._layout, style=self._style)
 
