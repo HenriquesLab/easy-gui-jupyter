@@ -1,0 +1,10 @@
+__pycache__/
+.venv/*
+*.pyc
+*.log
+*.whl
+.git/*
+.gptignore
+LICENSE
+.github/*
+.tox
