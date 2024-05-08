@@ -2,7 +2,11 @@
 name = "easy_gui_jupyter"
 version = "0.1.0"
 description = "Simplify the creation of GUI elements in Jupyter notebooks"
-authors = ["Ricardo Henriques <ricardo@henriqueslab.org>"]
+authors = [    
+    "Ricardo Henriques <ricardo@henriqueslab.org>", 
+    "Bruno Saraiva <bruno.msaraiva2@gmail.com>",
+    "António Brito <antmsbrito95@gmail.com>"
+    ]
 readme = "README.md"
 
 [tool.poetry.dependencies]
