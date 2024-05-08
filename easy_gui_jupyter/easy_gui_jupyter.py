@@ -4,15 +4,7 @@ A module to help simplify the create of GUIs in Jupyter notebooks using ipywidge
 
 import os
 import yaml
-import platform
 from ipyfilechooser import FileChooser
-
-
-# import cache if python >= 3.9, otherwise import lru_cache
-if platform.python_version_tuple() >= ("3", "9"):
-    from functools import cache
-else:
-    from functools import lru_cache as cache
 
 import ipywidgets as widgets
 from IPython.display import display, clear_output
@@ -95,7 +87,9 @@ class EasyGUI:
         :param kwargs: kwargs for the widget
         """
         self._nLabels += 1
-        self._widgets[f"label_{self._nLabels}"] = widgets.Label(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[f"label_{self._nLabels}"] = widgets.Label(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_button(self, tag, *args, **kwargs):
         """
@@ -104,7 +98,9 @@ class EasyGUI:
         :param args: args for the widget
         :param kwargs: kwargs for the widget
         """
-        self._widgets[tag] = widgets.Button(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.Button(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_text(self, tag, *args, **kwargs):
         """
@@ -117,7 +113,9 @@ class EasyGUI:
             >>> gui = EasyGUI()
             >>> gui.add_text("text", value="Hello, world!")
         """
-        self._widgets[tag] = widgets.Text(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.Text(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_int_slider(self, tag, *args, remember_value=False, **kwargs):
         """
@@ -127,9 +125,15 @@ class EasyGUI:
         :param remember_value: remember the last value
         :param kwargs: kwargs for the widget
         """
-        if remember_value and tag in self.cfg and kwargs["min"] <= self.cfg[tag] <= kwargs["max"]:
+        if (
+            remember_value
+            and tag in self.cfg
+            and kwargs["min"] <= self.cfg[tag] <= kwargs["max"]
+        ):
             kwargs["value"] = self.cfg[tag]
-        self._widgets[tag] = widgets.IntSlider(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.IntSlider(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_float_slider(self, tag, *args, remember_value=False, **kwargs):
         """
@@ -141,7 +145,9 @@ class EasyGUI:
         """
         if remember_value and tag in self.cfg:
             kwargs["value"] = self.cfg[tag]
-        self._widgets[tag] = widgets.FloatSlider(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.FloatSlider(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_checkbox(self, tag, *args, remember_value=False, **kwargs):
         """
@@ -153,7 +159,9 @@ class EasyGUI:
         """
         if remember_value and tag in self.cfg:
             kwargs["value"] = self.cfg[tag]
-        self._widgets[tag] = widgets.Checkbox(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.Checkbox(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_int_text(self, tag, *args, remember_value=False, **kwargs):
         """
@@ -166,7 +174,9 @@ class EasyGUI:
         if remember_value and tag in self.cfg:
             kwargs["value"] = self.cfg[tag]
 
-        self._widgets[tag] = widgets.IntText(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.IntText(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_float_text(self, tag, *args, remember_value=False, **kwargs):
         """
@@ -178,7 +188,9 @@ class EasyGUI:
         """
         if remember_value and tag in self.cfg:
             kwargs["value"] = self.cfg[tag]
-        self._widgets[tag] = widgets.FloatText(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.FloatText(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_dropdown(self, tag, *args, remember_value=False, **kwargs):
         """
@@ -190,7 +202,9 @@ class EasyGUI:
         """
         if remember_value and tag in self.cfg and self.cfg[tag] in kwargs["options"]:
             kwargs["value"] = self.cfg[tag]
-        self._widgets[tag] = widgets.Dropdown(*args, **kwargs, layout=self._layout, style=self._style)
+        self._widgets[tag] = widgets.Dropdown(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
 
     def add_file_upload(self, tag, *args, accept=None, multiple=False, **kwargs):
         """
@@ -221,7 +235,7 @@ class EasyGUI:
         Show the widgets in the container.
         """
         # display the widgets
-        self._main_display.children = (tuple(self._widgets.values()))
+        self._main_display.children = tuple(self._widgets.values())
         clear_output()
         display(self._main_display)
 
