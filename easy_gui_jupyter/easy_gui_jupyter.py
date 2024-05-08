@@ -50,6 +50,7 @@ class EasyGUI:
     def __init__(self, title="basic_gui", width="50%"):
         """
         Container for widgets.
+        :param title: title of the widget container
         :param width: width of the widget container
         """
         self._layout = widgets.Layout(width=width)
@@ -102,17 +103,21 @@ class EasyGUI:
             *args, **kwargs, layout=self._layout, style=self._style
         )
 
-    def add_text(self, tag, *args, **kwargs):
+    def add_text(self, tag, *args, remember_value=False, **kwargs):
         """
         Add a text widget to the container.
         :param tag: tag to identify the widget
         :param args: args for the widget
+        :param remember_value: remember the last value
         :param kwargs: kwargs for the widget
 
         Example:
             >>> gui = EasyGUI()
             >>> gui.add_text("text", value="Hello, world!")
         """
+        if remember_value and tag in self.cfg:
+            kwargs["value"] = self.cfg[tag]
+
         self._widgets[tag] = widgets.Text(
             *args, **kwargs, layout=self._layout, style=self._style
         )
