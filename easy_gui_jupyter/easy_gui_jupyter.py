@@ -116,7 +116,7 @@ class EasyGUI:
             >>> gui.add_text("text", value="Hello, world!")
         """
         if remember_value and tag in self.cfg:
-            kwargs["value"] = self.cfg[tag]
+            kwargs["value"] = str(self.cfg[tag])
 
         self._widgets[tag] = widgets.Text(
             *args, **kwargs, layout=self._layout, style=self._style
@@ -135,7 +135,7 @@ class EasyGUI:
             and tag in self.cfg
             and kwargs["min"] <= self.cfg[tag] <= kwargs["max"]
         ):
-            kwargs["value"] = self.cfg[tag]
+            kwargs["value"] = int(self.cfg[tag])
         self._widgets[tag] = widgets.IntSlider(
             *args, **kwargs, layout=self._layout, style=self._style
         )
