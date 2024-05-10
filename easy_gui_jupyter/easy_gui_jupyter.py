@@ -235,6 +235,15 @@ class EasyGUI:
         with open(self._config_file, "w") as f:
             yaml.dump(self._cfg, f)
 
+    def restore_default_settings(self):
+        # restore default settings
+        self.cfg = {}
+        self._cfg[self._title] = {}
+        with open(self._config_file, "w") as f:
+            yaml.dump(self._cfg, f)
+        self.clear()
+        self.show()
+
     def show(self):
         """
         Show the widgets in the container.
