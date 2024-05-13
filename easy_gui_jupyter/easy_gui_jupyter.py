@@ -122,6 +122,24 @@ class EasyGUI:
             *args, **kwargs, layout=self._layout, style=self._style
         )
 
+    def add_textarea(self, tag, *args, remember_value=False, **kwargs):
+        """
+        Add a textarea widget to the container.
+        :param tag: tag to identify the widget
+        :param args: args for the widget
+        :param remember_value: remember the last value
+        :param kwargs: kwargs for the widget
+        """
+        if remember_value and tag in self.cfg:
+            kwargs["value"] = str(self.cfg[tag])
+        self._widgets[tag] = widgets.Textarea(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
+
+        self._widgets[tag] = widgets.Textarea(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
+
     def add_int_slider(self, tag, *args, remember_value=False, **kwargs):
         """
         Add a integer slider widget to the container.
