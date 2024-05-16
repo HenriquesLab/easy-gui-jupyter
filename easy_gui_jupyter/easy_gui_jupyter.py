@@ -222,6 +222,10 @@ class EasyGUI:
         :param args: args for the widget
         :param remember_value: remember the last value
         :param kwargs: kwargs for the widget
+
+        Example:
+            >>> gui = EasyGUI()
+            >>> gui.add_dropdown("dropdown", options=["A", "B", "C"])
         """
         if remember_value and tag in self.cfg and self.cfg[tag] in kwargs["options"]:
             kwargs["value"] = self.cfg[tag]
