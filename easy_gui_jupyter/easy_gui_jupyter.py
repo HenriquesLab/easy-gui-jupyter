@@ -2,12 +2,52 @@
 A module to help simplify the create of GUIs in Jupyter notebooks using ipywidgets.
 """
 
-import os
 import yaml
 from ipyfilechooser import FileChooser
 
 import ipywidgets as widgets
 from IPython.display import display, clear_output
+
+from pathlib import Path
+
+CONFIG_FILE = Path.home() / ".easy_gui" / "easy_gui.yml"
+
+
+def get_config(title: str):
+    """
+    Get the configuration dictionary without needing to initialize the GUI.
+
+    :param title: title of the GUI
+    """
+
+    if not CONFIG_FILE.exists():
+        return {}
+
+    with open(CONFIG_FILE, "r") as f:
+        cfg = yaml.load(f, Loader=yaml.SafeLoader)
+
+    if title is None:
+        return cfg
+    elif title in cfg:
+        return cfg[title]
+    else:
+        return {}
+
+
+def save_config(title: str, cfg: dict):
+    """
+    Save the configuration dictionary to a file.
+
+    :param title: title of the GUI
+    :param cfg: configuration dictionary
+    """
+    CONFIG_FILE.parent.mkdir(exist_ok=True)
+
+    base_config = get_config(None)  # loads the config file
+    base_config[title] = cfg
+
+    with open(CONFIG_FILE, "w") as f:
+        yaml.dump(base_config, f)
 
 
 class EasyGUI:
@@ -59,21 +99,7 @@ class EasyGUI:
         self._nLabels = 0
         self._main_display = widgets.VBox()
         self._title = title
-        self._cfg = {title: {}}
-        self.cfg = self._cfg[title]
-
-        # Get the user's home folder
-        self._home_folder = os.path.expanduser("~")
-        self._config_folder = os.path.join(self._home_folder, ".nanopyx")
-        if not os.path.exists(self._config_folder):
-            os.makedirs(self._config_folder)
-
-        self._config_file = os.path.join(self._config_folder, "easy_gui.yml")
-        if os.path.exists(self._config_file):
-            with open(self._config_file, "r") as f:
-                self._cfg = yaml.load(f, Loader=yaml.FullLoader)
-                if title in self._cfg:
-                    self.cfg = self._cfg[title]
+        self.cfg = get_config(title)
 
     def __getitem__(self, tag: str) -> widgets.Widget:
         return self._widgets[tag]
@@ -253,16 +279,12 @@ class EasyGUI:
                 pass
             elif hasattr(self._widgets[tag], "value"):
                 self.cfg[tag] = self._widgets[tag].value
-        self._cfg[self._title] = self.cfg
-        with open(self._config_file, "w") as f:
-            yaml.dump(self._cfg, f)
+
+        save_config(self._title, self.cfg)
 
     def restore_default_settings(self):
         # restore default settings
-        self.cfg = {}
-        self._cfg[self._title] = {}
-        with open(self._config_file, "w") as f:
-            yaml.dump(self._cfg, f)
+        save_config(self._title, {})
         self.clear()
         self.show()
 
