@@ -4,8 +4,10 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "easy_gui_jupyter"
-version = "2024.05.19"
+version = "2024.05.24"
 description = "Simplify the creation of GUI elements in Jupyter notebooks"
+license = "MIT"
+repository = "https://github.com/HenriquesLab/easy-gui-jupyter"
 authors = [ "Ricardo Henriques <ricardo@henriqueslab.org>", "Bruno Saraiva <bruno.msaraiva2@gmail.com>", "António Brito <antmsbrito95@gmail.com>",]
 readme = "README.md"
 
