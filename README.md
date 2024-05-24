@@ -1,5 +1,9 @@
 # Easy GUI Jupyter
 
+[![PyPI version](https://badge.fury.io/py/easy_gui_jupyter.svg)](https://badge.fury.io/py/easy_gui_jupyter)
+[![Python versions](https://img.shields.io/pypi/pyversions/easy_gui_jupyter.svg)](https://pypi.org/project/easy_gui_jupyter/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Easy GUI Jupyter is a Python library that simplifies the creation of graphical user interfaces (GUIs) in Jupyter notebooks using ipywidgets. It provides a convenient way to add various types of widgets to your Jupyter notebooks, making it easier to interact with your code and visualize results.
 
 ## Features
