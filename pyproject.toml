@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "easy_gui_jupyter"
-version = "2024.05.24"
+version = "2024.05.28"
 description = "Simplify the creation of GUI elements in Jupyter notebooks"
 license = "MIT"
 repository = "https://github.com/HenriquesLab/easy-gui-jupyter"
@@ -27,6 +27,7 @@ addopts = "--nbmake -n=auto"
 pre-commit = "^3.7.0"
 ipykernel = "^6.29.4"
 ruff = "^0.4.3"
+lazydocs = "^0.4.8"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.2.0"

@@ -10,3 +10,5 @@ LICENSE
 .github/*
 .tox
 poetry.lock
+docs/*
+.DS_Store
