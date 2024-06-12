@@ -10,12 +10,12 @@
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L14"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L16"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `get_config`
 
 ```python
-get_config(title: str) → dict
+get_config(title: Optional[str]) → dict
 ```
 
 Get the configuration dictionary without needing to initialize the GUI. 
@@ -24,7 +24,7 @@ Get the configuration dictionary without needing to initialize the GUI.
 
 **Args:**
  
- - <b>`title`</b> (str):  The title of the GUI. 
+ - <b>`title`</b> (str):  The title of the GUI. If None, returns the entire configuration. 
 
 
 
@@ -35,7 +35,7 @@ Get the configuration dictionary without needing to initialize the GUI.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L41"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `save_config`
 
@@ -55,12 +55,12 @@ Save the configuration dictionary to file.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L59"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L61"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `EasyGUI`
 A class to help simplify the creation of GUIs in Jupyter notebooks using ipywidgets. 
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L66"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -82,7 +82,7 @@ Container for widgets.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L114"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_button`
 
@@ -102,7 +102,7 @@ Add a button widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L207"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L209"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_checkbox`
 
@@ -123,7 +123,7 @@ Add a checkbox widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L256"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L258"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_dropdown`
 
@@ -151,7 +151,7 @@ Add a dropdown widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L276"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L278"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_file_upload`
 
@@ -173,7 +173,7 @@ Add a file upload widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L191"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L193"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_float_slider`
 
@@ -194,7 +194,7 @@ Add a float slider widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L240"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L242"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_float_text`
 
@@ -215,7 +215,7 @@ Add a float text widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L171"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L173"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_int_slider`
 
@@ -236,7 +236,7 @@ Add a integer slider widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L223"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L225"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_int_text`
 
@@ -257,7 +257,7 @@ Add a integer text widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L101"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L103"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_label`
 
@@ -276,7 +276,7 @@ Add a label widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L127"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L129"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_text`
 
@@ -307,7 +307,7 @@ Add a text widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L151"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L153"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `add_textarea`
 
@@ -328,7 +328,7 @@ Add a textarea widget to the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L319"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L321"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `clear`
 
@@ -340,7 +340,7 @@ Clear the widgets in the container.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L303"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L305"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `restore_default_settings`
 
@@ -352,7 +352,7 @@ Restore the default settings and clear the widgets.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L291"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L293"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `save_settings`
 
@@ -364,7 +364,7 @@ Save the widget values to the configuration file.
 
 ---
 
-<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L311"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../easy_gui_jupyter/easy_gui_jupyter.py#L313"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `show`
 
