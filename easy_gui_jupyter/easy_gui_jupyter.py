@@ -4,6 +4,8 @@ import ipywidgets as widgets
 from IPython.display import display, clear_output
 from pathlib import Path
 
+from typing import Optional
+
 """
 A module to help simplify the create of GUIs in Jupyter notebooks using ipywidgets.
 """
@@ -11,12 +13,12 @@ A module to help simplify the create of GUIs in Jupyter notebooks using ipywidge
 CONFIG_PATH = Path.home() / ".config" / "easy_gui"
 
 
-def get_config(title: str) -> dict:
+def get_config(title: Optional[str]) -> dict:
     """
     Get the configuration dictionary without needing to initialize the GUI.
 
     Args:
-        title (str): The title of the GUI.
+        title (str): The title of the GUI. If None, returns the entire configuration.
 
     Returns:
         dict: The configuration dictionary.
@@ -49,7 +51,7 @@ def save_config(title: str, cfg: dict):
     config_file = CONFIG_PATH / f"{title}.yml"
     config_file.parent.mkdir(exist_ok=True)
 
-    base_config = get_config(None)  # loads the config file
+    base_config = get_config(title)  # loads the config file
     base_config[title] = cfg
 
     with open(config_file, "w") as f:
