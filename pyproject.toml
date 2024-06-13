@@ -4,13 +4,16 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "easy_gui_jupyter"
-version = "2024.06.12"
+version = "2024.06.13"
 description = "Simplify the creation of GUI elements in Jupyter notebooks"
 license = "MIT"
 repository = "https://github.com/HenriquesLab/easy-gui-jupyter"
 documentation = "https://github.com/HenriquesLab/easy-gui-jupyter/tree/main/docs"
 authors = [ "Ricardo Henriques <ricardo@henriqueslab.org>", "Bruno Saraiva <bruno.msaraiva2@gmail.com>", "António Brito <antmsbrito95@gmail.com>",]
 readme = "README.md"
+[[tool.poetry.packages]]
+include = "easy_gui_jupyter"
+from = "src"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -29,10 +32,10 @@ pre-commit = "^3.7.0"
 ipykernel = "^6.29.4"
 ruff = "^0.4.3"
 lazydocs = "^0.4.8"
-mypy = "^1.10.0"
+gptrepo = "^1.0.3"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.2.0"
 pytest-xdist = "^3.6.1"
 nbmake = "^1.5.3"
-gptrepo = "^1.0.3"
+mypy = "^1.10.0"
