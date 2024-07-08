@@ -271,6 +271,22 @@ class EasyGUI:
             *args, **kwargs, layout=self._layout, style=self._style
         )
 
+    def add_bounded_float_text(self, tag, *args, remember_value=False, **kwargs):
+        """
+        Add a bounded float text widget to the container.
+
+        Args:
+            tag (str): The tag to identify the widget.
+            args: Args for the widget.
+            remember_value (bool): Remember the last value.
+            kwargs: Kwargs for the widget.
+        """
+        if remember_value and tag in self._cfg:
+            kwargs["value"] = self._cfg[tag]
+        self._widgets[tag] = widgets.BoundedFloatText(
+            *args, **kwargs, layout=self._layout, style=self._style
+        )
+
     def add_dropdown(self, tag, *args, remember_value=False, **kwargs):
         """
         Add a dropdown widget to the container.
