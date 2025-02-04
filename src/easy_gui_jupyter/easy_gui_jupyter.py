@@ -1,3 +1,4 @@
+import os
 import yaml
 from ipyfilechooser import FileChooser
 import ipywidgets as widgets
@@ -12,6 +13,8 @@ A module to help simplify the create of GUIs in Jupyter notebooks using ipywidge
 
 CONFIG_PATH = Path.home() / ".config" / "easy_gui"
 
+if not os.path.exists(CONFIG_PATH):
+    os.makedirs(CONFIG_PATH)
 
 def get_config(title: Optional[str]) -> dict:
     """
@@ -269,13 +272,19 @@ class EasyGUI:
             >>> gui = EasyGUI()
             >>> gui.add_dropdown("dropdown", options=["A", "B", "C"])
         """
-        if remember_value and tag in self._cfg and self._cfg[tag] in kwargs["options"]:
+        if (
+            remember_value
+            and tag in self._cfg
+            and self._cfg[tag] in kwargs["options"]
+        ):
             kwargs["value"] = self._cfg[tag]
         self._widgets[tag] = widgets.Dropdown(
             *args, **kwargs, layout=self._layout, style=self._style
         )
 
-    def add_file_upload(self, tag, *args, accept=None, multiple=False, **kwargs):
+    def add_file_upload(
+        self, tag, *args, accept=None, multiple=False, **kwargs
+    ):
         """
         Add a file upload widget to the container.
 
